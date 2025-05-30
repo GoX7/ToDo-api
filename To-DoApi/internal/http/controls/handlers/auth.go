@@ -10,7 +10,7 @@ import (
 	"github.com/go-playground/validator"
 )
 
-func (h *Handlers) SighIn(w http.ResponseWriter, r *http.Request) {
+func (h *Handlers) SighUp(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	var user cookie.User
@@ -46,7 +46,7 @@ func (h *Handlers) SighIn(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response.NewOk())
 }
 
-func (h *Handlers) SighUp(w http.ResponseWriter, r *http.Request) {
+func (h *Handlers) SighIn(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	var user cookie.User
