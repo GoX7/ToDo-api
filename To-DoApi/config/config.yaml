@@ -1,11 +1,11 @@
 cookie:
-  key: "<secret-password>"
+  key: "<secret-password>" # password for cookie
 server:
-  addr: "0.0.0.0:8080"
-  wto:  5s
-  rto:  15s
+  addr: "host:port"
+  wto:  10s # write time out
+  rto:  10s # read time out
 logger:
   level:       "debug" # debug, info, warn, error
-  server_path: "logs/server.log"
-  sqlite_path: "logs/sqlite.log"
-  mw_path:     "logs/mw.log"
+  server_path: "logs/..." # path to server log
+  sqlite_path: "logs/..."
+  mw_path:     "logs/..."
