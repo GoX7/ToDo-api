@@ -1,0 +1,11 @@
+cookie:
+  key: "<secret-password>"
+server:
+  addr: "0.0.0.0:8080"
+  wto:  5s
+  rto:  15s
+logger:
+  level:       "debug" # debug, info, warn, error
+  server_path: "logs/server.log"
+  sqlite_path: "logs/sqlite.log"
+  mw_path:     "logs/mw.log"
