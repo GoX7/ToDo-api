@@ -56,23 +56,23 @@ curl -X POST http://localhost:8080/auth/sign-up \
 
 ```text
 to-do/
-├── config/
+├── config/                 #config api
 │   └── config.yaml
 ├── internal/
-│   ├── config/
+│   ├── config/             #config reader
 │   ├── http/
-│   │   ├── controls/
+│   │   ├── controls/       #http service
 │   │   │   ├──handlers/
 │   │   │   └──interfaces/
-│   │   └── cookie/
-│   ├── logger/
-│   └── sqlite/
+│   │   └── cookie/         #cookie
+│   ├── logger/             #logger
+│   └── sqlite/             #db service
 │       ├── db/
-│       ├── sql-main.go
-│       ├── user.go
-│       └── tasks.go
-├── pkg/
-│   ├── mw_logger/
-│   └── response/
-└── go.mod
+│       ├── sql-main.go    
+│       ├── user.go         #work with user
+│       └── tasks.go        #work with task 
+├── pkg/             
+│   ├── mw_logger/          #middleware logger
+│   └── response/           #json response
+└── main.go
 ```
