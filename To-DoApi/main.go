@@ -13,17 +13,17 @@ import (
 )
 
 func main() {
-	cfg, err := config.Load()
+	cfg, err := config.Load() // load config
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	logs, err := logger.New(cfg)
+	logs, err := logger.New(cfg) // load logger
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	db, err := sqlite.New()
+	db, err := sqlite.New() // New database
 	if err != nil {
 		logs.Server.Warn("*Error connect to database")
 		logs.Sqlite.Error(fmt.Sprint("*Error connect to database:", err))
@@ -34,14 +34,14 @@ func main() {
 	logs.Server.Debug("Connect to database")
 	logs.Sqlite.Info("Connect to database")
 
-	Start(cfg, logs, db)
+	Start(cfg, logs, db) // Function start server
 }
 
 func Start(cfg *config.Config, logger *logger.Logger, db *sqlite.Database) {
 	logger.Server.Debug("Function start...")
 
-	router := chi.NewRouter()
-	handlers.NewHandler(db, cfg, logger).Register(router)
+	router := chi.NewRouter()                             // router
+	handlers.NewHandler(db, cfg, logger).Register(router) // register handlers
 	logger.Server.Info("Start 2/2")
 
 	server := &http.Server{
@@ -53,7 +53,7 @@ func Start(cfg *config.Config, logger *logger.Logger, db *sqlite.Database) {
 
 	log.Print("Start")
 	logger.Server.Info("Start server")
-	err := server.ListenAndServe()
+	err := server.ListenAndServe() // start server
 	if err != nil {
 		logger.Server.Error(fmt.Sprint("Stop server, error:", err))
 	}
